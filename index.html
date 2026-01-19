@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ministore</title>
+    <title>Ministore - India's Premier Electronics Store</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,16 +9,299 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="author" content="">
     <meta name="keywords" content="">
-    <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="description" content="India's premier electronics store offering premium products at competitive prices with exceptional customer service.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- script
-    ================================================== -->
-    <script src="js/modernizr.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      :root {
+        --primary-color: #ff6b00;
+        --secondary-color: #ff3c00;
+        --accent-color: #ffd700;
+        --dark-color: #2c2c2c;
+        --light-color: #f8f9fa;
+        --gray-color: #6c757d;
+      }
+      
+      body {
+        font-family: 'Jost', sans-serif;
+        background-color: #f5f7fa;
+        color: #333;
+      }
+      
+      .text-primary {
+        color: var(--primary-color) !important;
+      }
+      
+      .bg-primary {
+        background-color: var(--primary-color) !important;
+      }
+      
+      .btn-primary {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+      }
+      
+      .btn-primary:hover {
+        background-color: var(--secondary-color);
+        border-color: var(--secondary-color);
+      }
+      
+      .header-scrolled {
+        background-color: rgba(255, 255, 255, 0.95) !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      }
+      
+      .navbar-brand img {
+        height: 40px;
+      }
+      
+      .search-button, .user, .cart {
+        color: var(--dark-color);
+        width: 24px;
+        height: 24px;
+      }
+      
+      .bg-light-blue {
+        background-color: #e4edf5;
+      }
+      
+      .display-2 {
+        font-weight: 700;
+        letter-spacing: -0.5px;
+      }
+      
+      .btn-medium {
+        padding: 12px 24px;
+        font-weight: 600;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+      }
+      
+      .btn-dark {
+        background-color: var(--dark-color);
+        border-color: var(--dark-color);
+      }
+      
+      .btn-dark:hover {
+        background-color: #000;
+        border-color: #000;
+        transform: translateY(-2px);
+      }
+      
+      .icon-box-icon svg {
+        width: 48px;
+        height: 48px;
+        color: var(--primary-color);
+      }
+      
+      .product-card {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+      }
+      
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      }
+      
+      .cart-concern {
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+      }
+      
+      .product-card:hover .cart-concern {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      .btn-black {
+        background-color: var(--dark-color);
+        border: none;
+        padding: 10px 15px;
+        font-size: 14px;
+      }
+      
+      .btn-black:hover {
+        background-color: #000;
+      }
+      
+      .cart-outline {
+        width: 18px;
+        height: 18px;
+        margin-left: 8px;
+      }
+      
+      .item-price {
+        font-weight: 700;
+        font-size: 18px;
+      }
+      
+      .swiper-pagination-bullet-active {
+        background-color: var(--primary-color);
+      }
+      
+      .testimonial-swiper .swiper-slide {
+        padding: 40px 0;
+      }
+      
+      .quotation svg {
+        width: 60px;
+        height: 60px;
+        color: var(--primary-color);
+        opacity: 0.3;
+      }
+      
+      .rating svg {
+        width: 20px;
+        height: 20px;
+        margin: 0 2px;
+      }
+      
+      .star-fill {
+        color: #ffd700;
+      }
+      
+      .star-half {
+        color: #ffd700;
+      }
+      
+      .star-empty {
+        color: #ddd;
+      }
+      
+      .subscribe-content {
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      
+      .instagram-item {
+        flex: 1 1 calc(20% - 16px);
+        margin-bottom: 20px;
+      }
+      
+      .insta-image {
+        border-radius: 8px;
+        width: 100%;
+        height: auto;
+        transition: all 0.3s ease;
+      }
+      
+      .instagram-item:hover .insta-image {
+        transform: scale(1.05);
+      }
+      
+      .icon-overlay {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 107, 0, 0.8);
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+      
+      .instagram-item:hover .icon-overlay {
+        opacity: 1;
+      }
+      
+      .instagram {
+        width: 32px;
+        height: 32px;
+        color: white;
+      }
+      
+      .footer-menu img {
+        height: 40px;
+        margin-bottom: 20px;
+      }
+      
+      .social-links svg {
+        width: 24px;
+        height: 24px;
+        margin-right: 15px;
+        color: var(--gray-color);
+        transition: all 0.3s ease;
+      }
+      
+      .social-links svg:hover {
+        color: var(--primary-color);
+        transform: translateY(-3px);
+      }
+      
+      .widget-title {
+        position: relative;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+      }
+      
+      .widget-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background-color: var(--primary-color);
+      }
+      
+      .menu-list li {
+        margin-bottom: 12px;
+      }
+      
+      .menu-list a {
+        color: var(--gray-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      
+      .menu-list a:hover {
+        color: var(--primary-color);
+        padding-left: 5px;
+      }
+      
+      #footer-bottom {
+        background-color: var(--dark-color);
+        color: white;
+        padding: 20px 0;
+      }
+      
+      .Shipping img, .payment-method img {
+        height: 30px;
+        margin-right: 10px;
+        border-radius: 3px;
+      }
+      
+      .indian-flag {
+        display: inline-block;
+        width: 24px;
+        height: 16px;
+        background: linear-gradient(to bottom, #ff9933 0%, #ff9933 33%, #ffffff 33%, #ffffff 66%, #138808 66%, #138808 100%);
+        margin-right: 8px;
+        vertical-align: middle;
+        border: 1px solid #ccc;
+      }
+      
+      @media (max-width: 768px) {
+        .instagram-item {
+          flex: 1 1 calc(50% - 16px);
+        }
+        
+        .display-2 {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
   </head>
   <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -50,7 +333,7 @@
         <path d="M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z" />
       </symbol>
       <symbol xmlns="http://www.w3.org/2000/svg" id="shield-plus" viewBox="0 0 16 16">
-        <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z" />
+        <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.24.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z" />
         <path d="M8 4.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V9a.5.5 0 0 1-1 0V7.5H6a.5.5 0 0 1 0-1h1.5V5a.5.5 0 0 1 .5-.5z" />
       </symbol>
       <symbol xmlns="http://www.w3.org/2000/svg" id="star-fill" viewBox="0 0 16 16">
@@ -128,11 +411,14 @@
         </div>
     </div>
     
-    <header id="header" class="site-header header-scrolled position-fixed text-black bg-light">
+    <header id="header" class="site-header header-scrolled position-fixed text-black bg-light w-100">
       <nav id="header-nav" class="navbar navbar-expand-lg px-3 mb-3">
         <div class="container-fluid">
           <a class="navbar-brand" href="index.html">
-            <img src="images/main-logo.png" class="logo">
+            <div class="d-flex align-items-center">
+              <div class="indian-flag"></div>
+              <span class="fw-bold fs-4">MINISTORE</span>
+            </div>
           </a>
           <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
             <svg class="navbar-icon">
@@ -142,7 +428,10 @@
           <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
             <div class="offcanvas-header px-4 pb-0">
               <a class="navbar-brand" href="index.html">
-                <img src="images/main-logo.png" class="logo">
+                <div class="d-flex align-items-center">
+                  <div class="indian-flag"></div>
+                  <span class="fw-bold fs-4">MINISTORE</span>
+                </div>
               </a>
               <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
             </div>
@@ -236,13 +525,13 @@
               <div class="row d-flex align-items-center">
                 <div class="col-md-6">
                   <div class="banner-content">
-                    <h1 class="display-2 text-uppercase text-dark pb-5">Your Products Are Great.</h1>
-                    <a href="shop.html" class="btn btn-medium btn-dark text-uppercase btn-rounded-none">Shop Product</a>
+                    <h1 class="display-2 text-uppercase text-dark pb-5">Premium Electronics for Every Indian Home</h1>
+                    <a href="shop.html" class="btn btn-medium btn-dark text-uppercase btn-rounded-none">Shop Now</a>
                   </div>
                 </div>
                 <div class="col-md-5">
                   <div class="image-holder">
-                    <img src="images/banner-image.png" alt="banner">
+                    <img src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80" alt="banner" class="img-fluid">
                   </div>
                 </div>
               </div>
@@ -253,13 +542,13 @@
               <div class="row d-flex flex-wrap align-items-center">
                 <div class="col-md-6">
                   <div class="banner-content">
-                    <h1 class="display-2 text-uppercase text-dark pb-5">Technology Hack You Won't Get</h1>
-                    <a href="shop.html" class="btn btn-medium btn-dark text-uppercase btn-rounded-none">Shop Product</a>
+                    <h1 class="display-2 text-uppercase text-dark pb-5">Best Deals Across India</h1>
+                    <a href="shop.html" class="btn btn-medium btn-dark text-uppercase btn-rounded-none">Explore Offers</a>
                   </div>
                 </div>
                 <div class="col-md-5">
                   <div class="image-holder">
-                    <img src="images/banner-image.png" alt="banner">
+                    <img src="https://images.unsplash.com/photo-1607082350899-7e105aa886ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="banner" class="img-fluid">
                   </div>
                 </div>
               </div>
@@ -290,7 +579,7 @@
               </div>
               <div class="icon-box-content">
                 <h3 class="card-title text-uppercase text-dark">Free delivery</h3>
-                <p>Consectetur adipi elit lorem ipsum dolor sit amet.</p>
+                <p>Across India on orders above ₹999</p>
               </div>
             </div>
           </div>
@@ -303,7 +592,7 @@
               </div>
               <div class="icon-box-content">
                 <h3 class="card-title text-uppercase text-dark">Quality guarantee</h3>
-                <p>Dolor sit amet orem ipsu mcons ectetur adipi elit.</p>
+                <p>Genuine products with warranty</p>
               </div>
             </div>
           </div>
@@ -316,7 +605,7 @@
               </div>
               <div class="icon-box-content">
                 <h3 class="card-title text-uppercase text-dark">Daily offers</h3>
-                <p>Amet consectetur adipi elit loreme ipsum dolor sit.</p>
+                <p>New deals every day for you</p>
               </div>
             </div>
           </div>
@@ -329,7 +618,7 @@
               </div>
               <div class="icon-box-content">
                 <h3 class="card-title text-uppercase text-dark">100% secure payment</h3>
-                <p>Rem Lopsum dolor sit amet, consectetur adipi elit.</p>
+                <p>All transactions are encrypted</p>
               </div>
             </div>
           </div>
@@ -350,7 +639,7 @@
               <div class="swiper-slide">
                 <div class="product-card position-relative">
                   <div class="image-holder">
-                    <img src="images/product-item1.jpg" alt="product-item" class="img-fluid">
+                    <img src="https://images.unsplash.com/photo-1595941069915-4ebc5197c14a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80" alt="product-item" class="img-fluid">
                   </div>
                   <div class="cart-concern position-absolute">
                     <div class="cart-button d-flex">
@@ -359,16 +648,16 @@
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
                     <h3 class="card-title text-uppercase">
-                      <a href="#">Iphone 10</a>
+                      <a href="#">Samsung Galaxy S23</a>
                     </h3>
-                    <span class="item-price text-primary">$980</span>
+                    <span class="item-price text-primary">₹74,999</span>
                   </div>
                 </div>
               </div>
               <div class="swiper-slide">
                 <div class="product-card position-relative">
                   <div class="image-holder">
-                    <img src="images/product-item2.jpg" alt="product-item" class="img-fluid">
+                    <img src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80" alt="product-item" class="img-fluid">
                   </div>
                   <div class="cart-concern position-absolute">
                     <div class="cart-button d-flex">
@@ -377,16 +666,16 @@
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
                     <h3 class="card-title text-uppercase">
-                      <a href="#">Iphone 11</a>
+                      <a href="#">iPhone 14 Pro</a>
                     </h3>
-                    <span class="item-price text-primary">$1100</span>
+                    <span class="item-price text-primary">₹1,29,999</span>
                   </div>
                 </div>
               </div>
               <div class="swiper-slide">
                 <div class="product-card position-relative">
                   <div class="image-holder">
-                    <img src="images/product-item3.jpg" alt="product-item" class="img-fluid">
+                    <img src="https://images.unsplash.com/photo-1607083206968-13611e3d76db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="product-item" class="img-fluid">
                   </div>
                   <div class="cart-concern position-absolute">
                     <div class="cart-button d-flex">
@@ -395,16 +684,16 @@
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
                     <h3 class="card-title text-uppercase">
-                      <a href="#">Iphone 8</a>
+                      <a href="#">OnePlus 11</a>
                     </h3>
-                    <span class="item-price text-primary">$780</span>
+                    <span class="item-price text-primary">₹56,999</span>
                   </div>
                 </div>
               </div>
               <div class="swiper-slide">
                 <div class="product-card position-relative">
                   <div class="image-holder">
-                    <img src="images/product-item4.jpg" alt="product-item" class="img-fluid">
+                    <img src="https://images.unsplash.com/photo-1605637377433-aaffdf45ba49?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80" alt="product-item" class="img-fluid">
                   </div>
                   <div class="cart-concern position-absolute">
                     <div class="cart-button d-flex">
@@ -413,16 +702,16 @@
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
                     <h3 class="card-title text-uppercase">
-                      <a href="#">Iphone 13</a>
+                      <a href="#">Google Pixel 7</a>
                     </h3>
-                    <span class="item-price text-primary">$1500</span>
+                    <span class="item-price text-primary">₹64,999</span>
                   </div>
                 </div>
               </div>
               <div class="swiper-slide">
                 <div class="product-card position-relative">
                   <div class="image-holder">
-                    <img src="images/product-item5.jpg" alt="product-item" class="img-fluid">
+                    <img src="https://images.unsplash.com/photo-1605637377433-aaffdf45ba49?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80" alt="product-item" class="img-fluid">
                   </div>
                   <div class="cart-concern position-absolute">
                     <div class="cart-button d-flex">
@@ -431,9 +720,9 @@
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
                     <h3 class="card-title text-uppercase">
-                      <a href="#">Iphone 12</a>
+                      <a href="#">Xiaomi 13</a>
                     </h3>
-                    <span class="item-price text-primary">$1300</span>
+                    <span class="item-price text-primary">₹62,999</span>
                   </div>
                 </div>
               </div>
@@ -457,7 +746,7 @@
               <div class="swiper-slide">
                 <div class="product-card position-relative">
                   <div class="image-holder">
-                    <img src="images/product-item6.jpg" alt="product-item" class="img-fluid">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1099&q=80" alt="product-item" class="img-fluid">
                   </div>
                   <div class="cart-concern position-absolute">
                     <div class="cart-button d-flex">
@@ -466,16 +755,16 @@
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
                     <h3 class="card-title text-uppercase">
-                      <a href="#">Pink watch</a>
+                      <a href="#">Apple Watch Series 8</a>
                     </h3>
-                    <span class="item-price text-primary">$870</span>
+                    <span class="item-price text-primary">₹41,999</span>
                   </div>
                 </div>
               </div>
               <div class="swiper-slide">
                 <div class="product-card position-relative">
                   <div class="image-holder">
-                    <img src="images/product-item7.jpg" alt="product-item" class="img-fluid">
+                    <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" alt="product-item" class="img-fluid">
                   </div>
                   <div class="cart-concern position-absolute">
                     <div class="cart-button d-flex">
@@ -484,16 +773,16 @@
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
                     <h3 class="card-title text-uppercase">
-                      <a href="#">Heavy watch</a>
+                      <a href="#">Samsung Galaxy Watch 5</a>
                     </h3>
-                    <span class="item-price text-primary">$680</span>
+                    <span class="item-price text-primary">₹24,999</span>
                   </div>
                 </div>
               </div>
               <div class="swiper-slide">
                 <div class="product-card position-relative">
                   <div class="image-holder">
-                    <img src="images/product-item8.jpg" alt="product-item" class="img-fluid">
+                    <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80" alt="product-item" class="img-fluid">
                   </div>
                   <div class="cart-concern position-absolute">
                     <div class="cart-button d-flex">
@@ -502,16 +791,16 @@
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
                     <h3 class="card-title text-uppercase">
-                      <a href="#">spotted watch</a>
+                      <a href="#">Noise ColorFit Pro</a>
                     </h3>
-                    <span class="item-price text-primary">$750</span>
+                    <span class="item-price text-primary">₹3,999</span>
                   </div>
                 </div>
               </div>
               <div class="swiper-slide">
                 <div class="product-card position-relative">
                   <div class="image-holder">
-                    <img src="images/product-item9.jpg" alt="product-item" class="img-fluid">
+                    <img src="https://images.unsplash.com/photo-1539874754764-5a96559165b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="product-item" class="img-fluid">
                   </div>
                   <div class="cart-concern position-absolute">
                     <div class="cart-button d-flex">
@@ -520,16 +809,16 @@
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
                     <h3 class="card-title text-uppercase">
-                      <a href="#">black watch</a>
+                      <a href="#">Amazfit Bip 3 Pro</a>
                     </h3>
-                    <span class="item-price text-primary">$650</span>
+                    <span class="item-price text-primary">₹7,999</span>
                   </div>
                 </div>
               </div>
               <div class="swiper-slide">
                 <div class="product-card position-relative">
                   <div class="image-holder">
-                    <img src="images/product-item10.jpg" alt="product-item" class="img-fluid">
+                    <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" alt="product-item" class="img-fluid">
                   </div>
                   <div class="cart-concern position-absolute">
                     <div class="cart-button d-flex">
@@ -538,9 +827,9 @@
                   </div>
                   <div class="card-detail d-flex justify-content-between pt-3">
                     <h3 class="card-title text-uppercase">
-                      <a href="#">black watch</a>
+                      <a href="#">Fossil Gen 6</a>
                     </h3>
-                    <span class="item-price text-primary">$750</span>
+                    <span class="item-price text-primary">₹19,999</span>
                   </div>
                 </div>
               </div>
@@ -550,12 +839,12 @@
       </div>
       <div class="swiper-pagination position-absolute text-center"></div>
     </section>
-    <section id="yearly-sale" class="bg-light-blue overflow-hidden mt-5 padding-xlarge" style="background-image: url('images/single-image1.png');background-position: right; background-repeat: no-repeat;">
+    <section id="yearly-sale" class="bg-light-blue overflow-hidden mt-5 padding-xlarge" style="background-image: url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');background-position: right; background-repeat: no-repeat; background-size: contain;">
       <div class="row d-flex flex-wrap align-items-center">
         <div class="col-md-6 col-sm-12">
           <div class="text-content offset-4 padding-medium">
-            <h3>10% off</h3>
-            <h2 class="display-2 pb-5 text-uppercase text-dark">New year sale</h2>
+            <h3 class="text-primary">15% off</h3>
+            <h2 class="display-2 pb-5 text-uppercase text-dark">Diwali Sale</h2>
             <a href="shop.html" class="btn btn-medium btn-dark text-uppercase btn-rounded-none">Shop Sale</a>
           </div>
         </div>
@@ -577,48 +866,48 @@
             <div class="col-lg-4 col-sm-12">
               <div class="card border-none me-3">
                 <div class="card-image">
-                  <img src="images/post-item1.jpg" alt="" class="img-fluid">
+                  <img src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80" alt="" class="img-fluid">
                 </div>
               </div>
               <div class="card-body text-uppercase">
                 <div class="card-meta text-muted">
-                  <span class="meta-date">feb 22, 2023</span>
+                  <span class="meta-date">Oct 15, 2023</span>
                   <span class="meta-category">- Gadgets</span>
                 </div>
                 <h3 class="card-title">
-                  <a href="#">Get some cool gadgets in 2023</a>
+                  <a href="#">Top Smartphones of 2023</a>
                 </h3>
               </div>
             </div>
             <div class="col-lg-4 col-sm-12">
               <div class="card border-none me-3">
                 <div class="card-image">
-                  <img src="images/post-item2.jpg" alt="" class="img-fluid">
+                  <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1099&q=80" alt="" class="img-fluid">
                 </div>
               </div>
               <div class="card-body text-uppercase">
                 <div class="card-meta text-muted">
-                  <span class="meta-date">feb 25, 2023</span>
-                  <span class="meta-category">- Technology</span>
+                  <span class="meta-date">Oct 10, 2023</span>
+                  <span class="meta-category">- Wearables</span>
                 </div>
                 <h3 class="card-title">
-                  <a href="#">Technology Hack You Won't Get</a>
+                  <a href="#">Best Smart Watches Under ₹10,000</a>
                 </h3>
               </div>
             </div>
             <div class="col-lg-4 col-sm-12">
               <div class="card border-none me-3">
                 <div class="card-image">
-                  <img src="images/post-item3.jpg" alt="" class="img-fluid">
+                  <img src="https://images.unsplash.com/photo-1595941069915-4ebc5197c14a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80" alt="" class="img-fluid">
                 </div>
               </div>
               <div class="card-body text-uppercase">
                 <div class="card-meta text-muted">
-                  <span class="meta-date">feb 22, 2023</span>
-                  <span class="meta-category">- Camera</span>
+                  <span class="meta-date">Oct 5, 2023</span>
+                  <span class="meta-category">- Photography</span>
                 </div>
                 <h3 class="card-title">
-                  <a href="#">Top 10 Small Camera In The World</a>
+                  <a href="#">Camera Phones That Rival DSLRs</a>
                 </h3>
               </div>
             </div>
@@ -645,7 +934,7 @@
                 <div class="swiper-slide text-center d-flex justify-content-center">
                   <div class="review-item col-md-10">
                     <i class="icon icon-review"></i>
-                    <blockquote>“Tempus oncu enim pellen tesque este pretium in neque, elit morbi sagittis lorem habi mattis Pellen tesque pretium feugiat vel morbi suspen dise sagittis lorem habi tasse morbi.”</blockquote>
+                    <blockquote>"Ordered my new smartphone from Ministore and received it within 2 days. The packaging was excellent and the phone was exactly as described. Customer service was very helpful when I had a query about my order."</blockquote>
                     <div class="rating">
                       <svg class="star star-fill">
                         <use xlink:href="#star-fill"></use>
@@ -656,23 +945,27 @@
                       <svg class="star star-fill">
                         <use xlink:href="#star-fill"></use>
                       </svg>
-                      <svg class="star star-half">
-                        <use xlink:href="#star-half"></use>
+                      <svg class="star star-fill">
+                        <use xlink:href="#star-fill"></use>
                       </svg>
-                      <svg class="star star-empty">
-                        <use xlink:href="#star-empty"></use>
+                      <svg class="star star-fill">
+                        <use xlink:href="#star-fill"></use>
                       </svg>
                     </div>
                     <div class="author-detail">
-                      <div class="name text-dark text-uppercase pt-2">Emma Chamberlin</div>
+                      <div class="name text-dark text-uppercase pt-2">Priya Sharma</div>
+                      <div class="location">Mumbai, Maharashtra</div>
                     </div>
                   </div>
                 </div>
                 <div class="swiper-slide text-center d-flex justify-content-center">
                   <div class="review-item col-md-10">
                     <i class="icon icon-review"></i>
-                    <blockquote>“A blog is a digital publication that can complement a website or exist independently. A blog may include articles, short posts, listicles, infographics, videos, and other digital content.”</blockquote>
+                    <blockquote>"The smartwatch I purchased exceeded my expectations. Battery life is amazing and all features work perfectly. The Diwali discount made it even more affordable. Will definitely shop here again!"</blockquote>
                     <div class="rating">
+                      <svg class="star star-fill">
+                        <use xlink:href="#star-fill"></use>
+                      </svg>
                       <svg class="star star-fill">
                         <use xlink:href="#star-fill"></use>
                       </svg>
@@ -685,12 +978,10 @@
                       <svg class="star star-half">
                         <use xlink:href="#star-half"></use>
                       </svg>
-                      <svg class="star star-empty">
-                        <use xlink:href="#star-empty"></use>
-                      </svg>
                     </div>
                     <div class="author-detail">
-                      <div class="name text-dark text-uppercase pt-2">Jennie Rose</div>
+                      <div class="name text-dark text-uppercase pt-2">Rajesh Kumar</div>
+                      <div class="location">Bangalore, Karnataka</div>
                     </div>
                   </div>
                 </div>
@@ -712,14 +1003,14 @@
           <div class="subscribe-content bg-dark d-flex flex-wrap justify-content-center align-items-center padding-medium">
             <div class="col-md-6 col-sm-12">
               <div class="display-header pe-3">
-                <h2 class="display-7 text-uppercase text-light">Subscribe Us Now</h2>
-                <p>Get latest news, updates and deals directly mailed to your inbox.</p>
+                <h2 class="display-7 text-uppercase text-light">Subscribe for Exclusive Offers</h2>
+                <p>Get latest deals, new arrivals and exclusive discounts directly to your inbox.</p>
               </div>
             </div>
             <div class="col-md-5 col-sm-12">
               <form class="subscription-form validate">
                 <div class="input-group flex-wrap">
-                  <input class="form-control btn-rounded-none" type="email" name="EMAIL" placeholder="Your email address here" required="">
+                  <input class="form-control btn-rounded-none" type="email" name="EMAIL" placeholder="Your email address" required="">
                   <button class="btn btn-medium btn-primary text-uppercase btn-rounded-none" type="submit" name="subscribe">Subscribe</button>
                 </div>
               </form>
@@ -732,12 +1023,12 @@
       <div class="container">
         <div class="row">
           <div class="display-header text-uppercase text-dark text-center pb-3">
-            <h2 class="display-7">Shop Our Insta</h2>
+            <h2 class="display-7">Follow Us On Instagram</h2>
           </div>
           <div class="d-flex flex-wrap">
             <figure class="instagram-item pe-2">
               <a href="https://templatesjungle.com/" class="image-link position-relative">
-                <img src="images/insta-item1.jpg" alt="instagram" class="insta-image">
+                <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="instagram" class="insta-image">
                 <div class="icon-overlay position-absolute d-flex justify-content-center">
                   <svg class="instagram">
                     <use xlink:href="#instagram"></use>
@@ -747,7 +1038,7 @@
             </figure>
             <figure class="instagram-item pe-2">
               <a href="https://templatesjungle.com/" class="image-link position-relative">
-                <img src="images/insta-item2.jpg" alt="instagram" class="insta-image">
+                <img src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80" alt="instagram" class="insta-image">
                 <div class="icon-overlay position-absolute d-flex justify-content-center">
                   <svg class="instagram">
                     <use xlink:href="#instagram"></use>
@@ -757,7 +1048,7 @@
             </figure>
             <figure class="instagram-item pe-2">
               <a href="https://templatesjungle.com/" class="image-link position-relative">
-                <img src="images/insta-item3.jpg" alt="instagram" class="insta-image">
+                <img src="https://images.unsplash.com/photo-1595941069915-4ebc5197c14a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80" alt="instagram" class="insta-image">
                 <div class="icon-overlay position-absolute d-flex justify-content-center">
                   <svg class="instagram">
                     <use xlink:href="#instagram"></use>
@@ -767,7 +1058,7 @@
             </figure>
             <figure class="instagram-item pe-2">
               <a href="https://templatesjungle.com/" class="image-link position-relative">
-                <img src="images/insta-item4.jpg" alt="instagram" class="insta-image">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1099&q=80" alt="instagram" class="insta-image">
                 <div class="icon-overlay position-absolute d-flex justify-content-center">
                   <svg class="instagram">
                     <use xlink:href="#instagram"></use>
@@ -777,7 +1068,7 @@
             </figure>
             <figure class="instagram-item pe-2">
               <a href="https://templatesjungle.com/" class="image-link position-relative">
-                <img src="images/insta-item5.jpg" alt="instagram" class="insta-image">
+                <img src="https://images.unsplash.com/photo-1607083206968-13611e3d76db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="instagram" class="insta-image">
                 <div class="icon-overlay position-absolute d-flex justify-content-center">
                   <svg class="instagram">
                     <use xlink:href="#instagram"></use>
@@ -789,15 +1080,18 @@
         </div>
       </div>
     </section>
-    <footer id="footer" class="overflow-hidden">
+    <footer id="footer" class="overflow-hidden bg-white">
       <div class="container">
         <div class="row">
           <div class="footer-top-area">
             <div class="row d-flex flex-wrap justify-content-between">
               <div class="col-lg-3 col-sm-6 pb-3">
                 <div class="footer-menu">
-                  <img src="images/main-logo.png" alt="logo">
-                  <p>Nisi, purus vitae, ultrices nunc. Sit ac sit suscipit hendrerit. Gravida massa volutpat aenean odio erat nullam fringilla.</p>
+                  <div class="d-flex align-items-center mb-3">
+                    <div class="indian-flag"></div>
+                    <h3 class="fw-bold fs-4">MINISTORE</h3>
+                  </div>
+                  <p>India's premier electronics store offering premium products at competitive prices with exceptional customer service across the nation.</p>
                   <div class="social-links">
                     <ul class="d-flex list-unstyled">
                       <li>
@@ -863,7 +1157,7 @@
               </div>
               <div class="col-lg-3 col-sm-6 pb-3">
                 <div class="footer-menu text-uppercase">
-                  <h5 class="widget-title pb-2">Help & Info Help</h5>
+                  <h5 class="widget-title pb-2">Customer Service</h5>
                   <ul class="menu-list list-unstyled">
                     <li class="menu-item pb-2">
                       <a href="#">Track Your Order</a>
@@ -878,7 +1172,7 @@
                       <a href="#">Contact Us</a>
                     </li>
                     <li class="menu-item pb-2">
-                      <a href="#">Faqs</a>
+                      <a href="#">FAQs</a>
                     </li>
                   </ul>
                 </div>
@@ -886,10 +1180,10 @@
               <div class="col-lg-3 col-sm-6 pb-3">
                 <div class="footer-menu contact-item">
                   <h5 class="widget-title text-uppercase pb-2">Contact Us</h5>
-                  <p>Do you have any queries or suggestions? <a href="mailto:">yourinfo@gmail.com</a>
-                  </p>
-                  <p>If you need support? Just give us a call. <a href="">+55 111 222 333 44</a>
-                  </p>
+                  <p>Have questions? Reach out to us anytime!</p>
+                  <p><i class="fas fa-envelope me-2"></i> <a href="mailto:support@ministore.in">support@ministore.in</a></p>
+                  <p><i class="fas fa-phone me-2"></i> <a href="tel:+916269045234">+91 6269045234</a></p>
+                  <p><i class="fas fa-map-marker-alt me-2"></i> Mumbai, Maharashtra, India</p>
                 </div>
               </div>
             </div>
@@ -905,8 +1199,8 @@
             <div class="Shipping d-flex">
               <p>We ship with:</p>
               <div class="card-wrap ps-2">
-                <img src="images/dhl.png" alt="visa">
-                <img src="images/shippingcard.png" alt="mastercard">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/DHL_Logo.svg/2560px-DHL_Logo.svg.png" alt="dhl" style="height: 25px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/FedEx_Express.svg/2560px-FedEx_Express.svg.png" alt="fedex" style="height: 25px;">
               </div>
             </div>
           </div>
@@ -914,25 +1208,117 @@
             <div class="payment-method d-flex">
               <p>Payment options:</p>
               <div class="card-wrap ps-2">
-                <img src="images/visa.jpg" alt="visa">
-                <img src="images/mastercard.jpg" alt="mastercard">
-                <img src="images/paypal.jpg" alt="paypal">
+                <i class="fab fa-cc-visa fa-2x me-2" style="color: #1a1f71;"></i>
+                <i class="fab fa-cc-mastercard fa-2x me-2" style="color: #eb001b;"></i>
+                <i class="fab fa-cc-paypal fa-2x me-2" style="color: #003087;"></i>
+                <i class="fab fa-google-pay fa-2x me-2" style="color: #5f6368;"></i>
+                <i class="fab fa-amazon-pay fa-2x" style="color: #ff9900;"></i>
               </div>
             </div>
           </div>
           <div class="col-md-4 col-sm-6">
             <div class="copyright">
-              <p>© Copyright 2023 MiniStore. Design by <a href="https://templatesjungle.com/">TemplatesJungle</a> Distribution by <a href="https://themewagon.com">ThemeWagon</a>
-              </p>
+              <p>© Copyright 2023 Ministore. Made with <i class="fas fa-heart text-danger"></i> in India</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <script src="js/jquery-1.11.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="js/plugins.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Initialize Swiper sliders
+        const mainSwiper = new Swiper('.main-swiper', {
+          loop: true,
+          autoplay: {
+            delay: 5000,
+          },
+          navigation: {
+            nextEl: '.swiper-arrow-next',
+            prevEl: '.swiper-arrow-prev',
+          },
+        });
+        
+        const productSwiper = new Swiper('.product-swiper', {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          loop: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          breakpoints: {
+            576: {
+              slidesPerView: 2,
+            },
+            768: {
+              slidesPerView: 3,
+            },
+            992: {
+              slidesPerView: 4,
+            },
+          }
+        });
+        
+        const watchSwiper = new Swiper('.product-watch-swiper', {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          loop: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          breakpoints: {
+            576: {
+              slidesPerView: 2,
+            },
+            768: {
+              slidesPerView: 3,
+            },
+            992: {
+              slidesPerView: 4,
+            },
+          }
+        });
+        
+        const testimonialSwiper = new Swiper('.testimonial-swiper', {
+          slidesPerView: 1,
+          loop: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+        });
+        
+        // Search functionality
+        const searchButton = document.querySelector('.search-button');
+        const searchPopup = document.querySelector('.search-popup');
+        const closePopup = document.querySelector('.btn-close');
+        
+        if(searchButton) {
+          searchButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            searchPopup.style.display = 'block';
+          });
+        }
+        
+        if(closePopup) {
+          closePopup.addEventListener('click', function() {
+            searchPopup.style.display = 'none';
+          });
+        }
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+          const header = document.getElementById('header');
+          if(window.scrollY > 50) {
+            header.classList.add('header-scrolled');
+          } else {
+            header.classList.remove('header-scrolled');
+          }
+        });
+      });
+    </script>
   </body>
 </html>
