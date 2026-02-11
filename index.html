@@ -1,85 +1,258 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JainxStore - WhatsApp Ordering</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        :root {
-            --primary: #2874f0;
-            --secondary: #fb641b;
-            --light-bg: #f1f3f6;
-            --dark-text: #212121;
-            --light-text: #878787;
-            --white: #ffffff;
-            --border: #e0e0e0;
-            --success: #388e3c;
-            --whatsapp: #25D366;
-        }
-        body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7f4 100%);
-            color: var(--dark-text);
-            min-height: 100vh;
-            padding-bottom: 40px;
-        }
-        header {
-            background: linear-gradient(to right, var(--primary), #1a5cc9);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            padding: 15px 0;
-        }
-        .top-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: var(--white);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-        .logo span { color: var(--secondary); }
-        .logo i { margin-right: 10px; color: var(--whatsapp); animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
-        
-        .search-container { flex: 1; max-width: 500px; margin: 0 20px; position: relative; }
-        .search-container input { width: 100%; padding: 12px 15px; border-radius: 24px; border: none; }
-        .nav-links { display: flex; align-items: center; }
-        .nav-item { padding: 10px 15px; color: var(--white); cursor: pointer; }
-        .cart-icon { position: relative; font-size: 22px; }
-        .cart-count { position: absolute; top: -8px; right: -8px; background: var(--secondary); color: white; font-size: 12px; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartXNest | WhatsApp Ordering Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:'Poppins',sans-serif;background:#f4f6fb;color:#111;transition:.3s}
+    body.dark{background:#0a0f1f;color:#fff}
 
-        .container { max-width: 1200px; margin: 20px auto; padding: 0 15px; }
-        .page-title { text-align: center; color: var(--primary); margin: 20px 0; }
-        .section-title { margin: 25px 0 15px; color: var(--primary); display: flex; align-items: center; }
-        .section-title i { margin-right: 10px; color: var(--secondary); }
+    /* HEADER */
+    .header{background:linear-gradient(90deg,#4f46e5,#9333ea)}
 
-        /* Products */
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 25px; }
-        .product-card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: 0.3s; padding: 15px; }
-        .product-card:hover { transform: translateY(-5px); }
-        .product-image { height: 150px; display: flex; align-items: center; justify-content: center; background: #f8f9fa; margin-bottom: 10px; }
-        .product-image img { max-width: 100%; max-height: 100%; }
-        .product-price { font-size: 18px; font-weight: 600; color: var(--primary); }
-        .add-to-cart { background: var(--primary); color: white; border: none; padding: 10px; width: 100%; border-radius: 6px; cursor: pointer; margin-top: 10px; }
+    /* PRODUCT CARD */
+    .card{background:#fff;border-radius:16px;padding:16px;box-shadow:0 8px 20px rgba(0,0,0,.08);transition:.3s}
+    body.dark .card{background:#11162a}
+    .card:hover{transform:translateY(-6px)}
+    .card img{transition:.4s}
+    .card:hover img{transform:scale(1.08)}
 
-        /* Cart & Form */
-        .cart-section, .address-section, .payment-section, .order-confirmation { 
-            background: var(--white); border-radius: 12px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); margin: 20px 0; 
-        }
-        .cart-item { display: flex;
+    /* BUTTON */
+    .btn{background:#4f46e5;color:#fff;border-radius:999px;padding:10px 18px;font-weight:600;transition:.3s}
+    .btn:hover{background:#9333ea}
+
+    /* CART PANEL */
+    #cartPanel{animation:slide .3s ease}
+    @keyframes slide{from{transform:translateX(100%)}to{transform:none}}
+
+    /* TOGGLE */
+    .toggle{position:fixed;bottom:20px;right:20px;width:48px;height:48px;border-radius:50%;background:#4f46e5;color:#fff;font-size:20px}
+  
+    /* HERO TEXT ANIMATION */
+    .hero-animate{
+      background:linear-gradient(90deg,#4f46e5,#9333ea,#06b6d4);
+      background-size:200% auto;
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      animation:shine 4s linear infinite, floatText 3s ease-in-out infinite;
+    }
+    @keyframes shine{
+      to{background-position:200% center}
+    }
+    @keyframes floatText{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-8px)}
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header text-white py-6">
+  <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+    <h1 class="text-2xl font-bold">SmartXNest</h1>
+    <div class="flex items-center gap-4">
+      <button onclick="toggleCart()" class="bg-white/20 px-4 py-2 rounded-full">🛒 Cart (<span id="cartCount">0</span>)</button>
+    </div>
+  </div>
+</header>
+
+<!-- CART PANEL -->
+<div id="cartPanel" class="hidden fixed top-0 right-0 h-full w-80 bg-white dark:bg-[#11162a] shadow-2xl p-5 z-50">
+  <h3 class="text-xl font-bold mb-4">Your Order</h3>
+  <div id="cartItems" class="space-y-3 text-sm"></div>
+  <p class="mt-4 font-semibold">Total: ₹<span id="cartTotal">0</span></p>
+  <button onclick="checkoutWhatsApp()" class="btn w-full mt-4">Order via WhatsApp</button>
+  <button onclick="toggleCart()" class="w-full mt-2 text-xs opacity-70">Close</button>
+</div>
+
+<button id="darkToggle" class="toggle">🌙</button>
+
+<!-- HERO -->
+<section class="text-center py-20">
+  <h2 class="text-4xl font-bold text-indigo-600 hero-animate">Smart Products for Smart Living</h2>
+  <p class="mt-3 opacity-80">Order directly on WhatsApp • Fast & Easy</p>
+</section>
+
+<!-- PRODUCTS -->
+<section class="max-w-7xl mx-auto px-6 pb-20">
+  <h3 class="text-2xl font-bold mb-8">Top Products</h3>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+    <div class="card text-center"><img src="https://via.placeholder.com/300" class="rounded-xl mx-auto"><h4 class="mt-3">Smart LED Lamp</h4><p class="font-semibold">₹1299</p><button class="btn mt-3" onclick="addToCart('Smart LED Lamp',1299)">Add</button></div>
+    <div class="card text-center"><img src="https://via.placeholder.com/300" class="rounded-xl mx-auto"><h4 class="mt-3">Wireless Charger</h4><p class="font-semibold">₹1499</p><button class="btn mt-3" onclick="addToCart('Wireless Charger',1499)">Add</button></div>
+    <div class="card text-center"><img src="https://via.placeholder.com/300" class="rounded-xl mx-auto"><h4 class="mt-3">Aroma Diffuser</h4><p class="font-semibold">₹1799</p><button class="btn mt-3" onclick="addToCart('Aroma Diffuser',1799)">Add</button></div>
+    <div class="card text-center"><img src="https://via.placeholder.com/300" class="rounded-xl mx-auto"><h4 class="mt-3">Touch Lamp</h4><p class="font-semibold">₹1199</p><button class="btn mt-3" onclick="addToCart('Touch Lamp',1199)">Add</button></div>
+    <div class="card text-center"><img src="https://via.placeholder.com/300" class="rounded-xl mx-auto"><h4 class="mt-3">Smart Clock</h4><p class="font-semibold">₹1599</p><button class="btn mt-3" onclick="addToCart('Smart Clock',1599)">Add</button></div>
+    <div class="card text-center"><img src="https://via.placeholder.com/300" class="rounded-xl mx-auto"><h4 class="mt-3">LED Strip</h4><p class="font-semibold">₹999</p><button class="btn mt-3" onclick="addToCart('LED Strip',999)">Add</button></div>
+    <div class="card text-center"><img src="https://via.placeholder.com/300" class="rounded-xl mx-auto"><h4 class="mt-3">Motion Sensor</h4><p class="font-semibold">₹1899</p><button class="btn mt-3" onclick="addToCart('Motion Sensor',1899)">Add</button></div>
+    <div class="card text-center"><img src="https://via.placeholder.com/300" class="rounded-xl mx-auto"><h4 class="mt-3">Mini Humidifier</h4><p class="font-semibold">₹1099</p><button class="btn mt-3" onclick="addToCart('Mini Humidifier',1099)">Add</button></div>
+
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="bg-indigo-50 dark:bg-[#0f152e] py-16 text-center">
+  <h3 class="text-2xl font-bold">⭐ 99+ Trusted Reviews</h3>
+  <p class="mt-2 opacity-80">Customers love SmartXNest</p>
+</section>
+
+<footer class="py-6 text-center text-sm opacity-70">© 2026 SmartXNest • WhatsApp Ordering</footer>
+
+<script>
+  const darkBtn=document.getElementById('darkToggle');
+  darkBtn.onclick=()=>{document.body.classList.toggle('dark');darkBtn.textContent=document.body.classList.contains('dark')?'☀️':'🌙'};
+
+  let cart=[];
+  function addToCart(name,price){cart.push({name,price});updateCart();}
+  function updateCart(){
+    const items=document.getElementById('cartItems');
+    const totalEl=document.getElementById('cartTotal');
+    const countEl=document.getElementById('cartCount');
+    items.innerHTML='';let total=0;
+    cart.forEach(i=>{total+=i.price;items.innerHTML+=`<div class="flex justify-between"><span>${i.name}</span><span>₹${i.price}</span></div>`});
+    totalEl.textContent=total;countEl.textContent=cart.length;
+  }
+  function toggleCart(){document.getElementById('cartPanel').classList.toggle('hidden')}
+  function checkoutWhatsApp(){
+    if(cart.length===0){alert('Cart is empty');return;}
+    let msg='Order from SmartXNest:%0A';let total=0;
+    cart.forEach(i=>{msg+=`- ${i.name} ₹${i.price}%0A`;total+=i.price});
+    msg+=`Total: ₹${total}`;
+    window.open(`https://wa.me/6269045234?text=${msg}`,'_blank');
+  }
+</script>
+
+</body>
+</html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartXNest | WhatsApp Ordering Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:'Poppins',sans-serif;background:#f4f6fb;color:#111;transition:.3s}
+    body.dark{background:#0a0f1f;color:#fff}
+
+    /* HEADER */
+    .header{background:linear-gradient(90deg,#4f46e5,#9333ea)}
+
+    /* PRODUCT CARD */
+    .card{background:#fff;border-radius:16px;padding:16px;box-shadow:0 8px 20px rgba(0,0,0,.08);transition:.3s}
+    body.dark .card{background:#11162a}
+    .card:hover{transform:translateY(-6px)}
+    .card img{transition:.4s}
+    .card:hover img{transform:scale(1.08)}
+
+    /* BUTTON */
+    .btn{background:#4f46e5;color:#fff;border-radius:999px;padding:10px 18px;font-weight:600;transition:.3s}
+    .btn:hover{background:#9333ea}
+
+    /* CART PANEL */
+    #cartPanel{animation:slide .3s ease}
+    @keyframes slide{from{transform:translateX(100%)}to{transform:none}}
+
+    /* TOGGLE */
+    .toggle{position:fixed;bottom:20px;right:20px;width:48px;height:48px;border-radius:50%;background:#4f46e5;color:#fff;font-size:20px}
+  
+    /* HERO TEXT ANIMATION */
+    .hero-animate{
+      background:linear-gradient(90deg,#4f46e5,#9333ea,#06b6d4);
+      background-size:200% auto;
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      animation:shine 4s linear infinite, floatText 3s ease-in-out infinite;
+    }
+    @keyframes shine{
+      to{background-position:200% center}
+    }
+    @keyframes floatText{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-8px)}
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header text-white py-6">
+  <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+    <h1 class="text-2xl font-bold">SmartXNest</h1>
+    <div class="flex items-center gap-4">
+      <button onclick="toggleCart()" class="bg-white/20 px-4 py-2 rounded-full">🛒 Cart (<span id="cartCount">0</span>)</button>
+    </div>
+  </div>
+</header>
+
+<!-- CART PANEL -->
+<div id="cartPanel" class="hidden fixed top-0 right-0 h-full w-80 bg-white dark:bg-[#11162a] shadow-2xl p-5 z-50">
+  <h3 class="text-xl font-bold mb-4">Your Order</h3>
+  <div id="cartItems" class="space-y-3 text-sm"></div>
+  <p class="mt-4 font-semibold">Total: ₹<span id="cartTotal">0</span></p>
+  <button onclick="checkoutWhatsApp()" class="btn w-full mt-4">Order via WhatsApp</button>
+  <button onclick="toggleCart()" class="w-full mt-2 text-xs opacity-70">Close</button>
+</div>
+
+<button id="darkToggle" class="toggle">🌙</button>
+
+<!-- HERO -->
+<section class="text-center py-20">
+  <h2 class="text-4xl font-bold text-indigo-600 hero-animate">Smart Products for Smart Living</h2>
+  <p class="mt-3 opacity-80">Order directly on WhatsApp • Fast & Easy</p>
+</section>
+
+<!-- PRODUCTS -->
+<section class="max-w-7xl mx-auto px-6 pb-20">
+  <h3 class="text-2xl font-bold mb-8">Top Products</h3>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+    <div class="card text-center"><img src="https://via.placeholder.com/300" class="rounded-xl mx-auto"><h4 class="mt-3">Smart LED Lamp</h4><p class="font-semibold">₹1299</p><button class="btn mt-3" onclick="addToCart('Smart LED Lamp',1299)">Add</button></div>
+    <div class="card text-center"><img src="https://via.placeholder.com/300" class="rounded-xl mx-auto"><h4 class="mt-3">Wireless Charger</h4><p class="font-semibold">₹1499</p><button class="btn mt-3" onclick="addToCart('Wireless Charger',1499)">Add</button></div>
+    <div class="card text-center"><img src="https://via.placeholder.com/300" class="rounded-xl mx-auto"><h4 class="mt-3">Aroma Diffuser</h4><p class="font-semibold">₹1799</p><button class="btn mt-3" onclick="addToCart('Aroma Diffuser',1799)">Add</button></div>
+    <div class="card text-center"><img src="https://via.placeholder.com/300" class="rounded-xl mx-auto"><h4 class="mt-3">Touch Lamp</h4><p class="font-semibold">₹1199</p><button class="btn mt-3" onclick="addToCart('Touch Lamp',1199)">Add</button></div>
+    <div class="card text-center"><img src="https://via.placeholder.com/300" class="rounded-xl mx-auto"><h4 class="mt-3">Smart Clock</h4><p class="font-semibold">₹1599</p><button class="btn mt-3" onclick="addToCart('Smart Clock',1599)">Add</button></div>
+    <div class="card text-center"><img src="https://via.placeholder.com/300" class="rounded-xl mx-auto"><h4 class="mt-3">LED Strip</h4><p class="font-semibold">₹999</p><button class="btn mt-3" onclick="addToCart('LED Strip',999)">Add</button></div>
+    <div class="card text-center"><img src="https://via.placeholder.com/300" class="rounded-xl mx-auto"><h4 class="mt-3">Motion Sensor</h4><p class="font-semibold">₹1899</p><button class="btn mt-3" onclick="addToCart('Motion Sensor',1899)">Add</button></div>
+    <div class="card text-center"><img src="https://via.placeholder.com/300" class="rounded-xl mx-auto"><h4 class="mt-3">Mini Humidifier</h4><p class="font-semibold">₹1099</p><button class="btn mt-3" onclick="addToCart('Mini Humidifier',1099)">Add</button></div>
+
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="bg-indigo-50 dark:bg-[#0f152e] py-16 text-center">
+  <h3 class="text-2xl font-bold">⭐ 99+ Trusted Reviews</h3>
+  <p class="mt-2 opacity-80">Customers love SmartXNest</p>
+</section>
+
+<footer class="py-6 text-center text-sm opacity-70">© 2026 SmartXNest • WhatsApp Ordering</footer>
+
+<script>
+  const darkBtn=document.getElementById('darkToggle');
+  darkBtn.onclick=()=>{document.body.classList.toggle('dark');darkBtn.textContent=document.body.classList.contains('dark')?'☀️':'🌙'};
+
+  let cart=[];
+  function addToCart(name,price){cart.push({name,price});updateCart();}
+  function updateCart(){
+    const items=document.getElementById('cartItems');
+    const totalEl=document.getElementById('cartTotal');
+    const countEl=document.getElementById('cartCount');
+    items.innerHTML='';let total=0;
+    cart.forEach(i=>{total+=i.price;items.innerHTML+=`<div class="flex justify-between"><span>${i.name}</span><span>₹${i.price}</span></div>`});
+    totalEl.textContent=total;countEl.textContent=cart.length;
+  }
+  function toggleCart(){document.getElementById('cartPanel').classList.toggle('hidden')}
+  function checkoutWhatsApp(){
+    if(cart.length===0){alert('Cart is empty');return;}
+    let msg='Order from SmartXNest:%0A';let total=0;
+    cart.forEach(i=>{msg+=`- ${i.name} ₹${i.price}%0A`;total+=i.price});
+    msg+=`Total: ₹${total}`;
+    window.open(`https://wa.me/6269045234?text=${msg}`,'_blank');
+  }
+</script>
+
+</body>
+</html>
